@@ -1,0 +1,15 @@
+{
+  "channel": "executive_sales_alerts",
+  "deal_id": "DEAL-401",
+  "company": "Al-Noor Financial Technologies",
+  "contact": "Tariq Al-Mansoor",
+  "value": "$45000",
+  "proposal_url": "file:///C:/Users/KIIT/.gemini/antigravity/scratch/deal_proposal_automation/generated_proposals/DEAL-401_al-noor_financial_technologies_sow.html",
+  "status": "WAITING_1_CLICK_APPROVAL",
+  "preview_text": "[SOW Ready for Review: DEAL-401]\nClient: Al-Noor Financial Technologies (Tariq Al-Mansoor)\nBudget: $45000\nTimeline: Weeks 1 - 2\nDoc: DEAL-401_al-noor_financial_technologies_sow.html\nStatus: Awaiting operator tap to dispatch email.",
+  "quick_actions": [
+    "Approve & Send Email",
+    "Edit Milestones",
+    "Reject"
+  ]
+}

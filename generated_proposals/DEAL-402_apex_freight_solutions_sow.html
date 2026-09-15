@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope of Work & Proposal | Apex Freight Solutions</title>
+    <style>
+        :root {
+            --primary: #0F172A;
+            --accent: #2563EB;
+            --accent-light: #EFF6FF;
+            --border: #E2E8F0;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --success: #059669;
+            --card-bg: #FFFFFF;
+            --page-bg: #F8FAFC;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--page-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            padding: 40px 48px;
+            position: relative;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.3);
+            border: 1px solid #3B82F6;
+            color: #93C5FD;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #94A3B8;
+            font-size: 15px;
+        }
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .meta-item .meta-label {
+            font-size: 11px;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .meta-item .meta-val {
+            font-size: 14px;
+            font-weight: 600;
+            color: #F8FAFC;
+        }
+        .body-content {
+            padding: 48px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        p {
+            color: var(--text-main);
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+        .diagnostic-box {
+            background: #FEF2F2;
+            border-left: 4px solid #EF4444;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #991B1B;
+        }
+        .target-box {
+            background: #F0FDF4;
+            border-left: 4px solid #22C55E;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+            font-size: 14px;
+            color: #166534;
+        }
+        .milestone-card {
+            background: var(--page-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: transform 0.15s ease;
+        }
+        .milestone-card:hover {
+            border-color: #CBD5E1;
+        }
+        .milestone-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .milestone-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .milestone-timeline {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .milestone-fee {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-light);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+        .deliverables-list {
+            list-style: disc;
+            padding-left: 20px;
+            font-size: 14px;
+            color: #334155;
+        }
+        .deliverables-list li {
+            margin-bottom: 6px;
+        }
+        .investment-summary {
+            background: #F8FAFC;
+            border: 2px solid #E2E8F0;
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .total-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .compliance-list {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+            color: #334155;
+        }
+        .compliance-list li {
+            margin-bottom: 6px;
+        }
+        .approval-section {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 2px dashed var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .sig-block {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .sig-line {
+            height: 40px;
+            border-bottom: 1px solid #94A3B8;
+            margin-bottom: 8px;
+        }
+        .sig-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        .footer {
+            background: #F1F5F9;
+            padding: 20px 48px;
+            text-align: center;
+            font-size: 12px;
+            color: #64748B;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">Official Scope of Work & Proposal</div>
+            <h1 class="title">Automated Carrier Dispatch Exception Triage</h1>
+            <div class="subtitle">Prepared exclusively for Apex Freight Solutions</div>
+            <div class="meta-grid">
+                <div class="meta-item">
+                    <div class="meta-label">Client Contact</div>
+                    <div class="meta-val">Sarah Jenkins</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Issuance Date</div>
+                    <div class="meta-val">September 15, 2026</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Target Region</div>
+                    <div class="meta-val">North America (Canada)</div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-label">Quote Validity</div>
+                    <div class="meta-val">14 business days from issuance</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-content">
+            <div class="section">
+                <h3 class="section-title">1. Executive Summary</h3>
+                <p>Following our discovery call with Sarah Jenkins, this Proposal & Scope of Work outlines the phased implementation of the Automated Carrier Dispatch Exception Triage for Apex Freight Solutions. Our core mandate is to eliminate manual operational drag, reduce task turnaround latency from days to minutes, and establish a resilient, auditable workflow tailored to your regional regulatory and infrastructure requirements in North America (Canada).</p>
+                
+                <div class="diagnostic-box">
+                    <strong>Current Operational Pain Diagnosed:</strong><br>
+                    Current operational diagnostic: Freight brokerage with 185 employees. Receives 800+ carrier emails daily regarding load status, detention requests, and rate renegotiations. Currently 6 dispatchers spend 4 hours every morning replying. Target: AI triage bot to parse incoming freight emails, extract load IDs, che... Manual coordination creates latency bottlenecks, increases compliance risks, and consumes valuable operator hours.
+                </div>
+
+                <div class="target-box">
+                    <strong>Target Production Architecture:</strong><br>
+                    Implementation of an end-to-end automated pipeline providing instant response verification, deep data integration into existing core platforms, and 1-click human-in-the-loop governance.
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">2. Phased Milestones & Key Deliverables</h3>
+                <p>To eliminate delivery ambiguity, this engagement is structured into measurable, acceptance-gated milestones:</p>
+                
+        <div class="milestone-card">
+            <div class="milestone-header">
+                <div>
+                    <h4 class="milestone-title">Phase 1: Architecture, Security & Schema Specification</h4>
+                    <span class="milestone-timeline">⏱ Estimated Duration: Weeks 1 - 2</span>
+                </div>
+                <div class="milestone-fee">$32000 (40% initial tranche)</div>
+            </div>
+            <ul class="deliverables-list">
+                <li>Full technical specification and system architecture diagram</li><li>Data privacy & residency review (SOC 2 / GDPR / Regional Cloud compliance)</li><li>API contracts, schema definitions, and secure webhook staging</li>
+            </ul>
+        </div>
+        
+        <div class="milestone-card">
+            <div class="milestone-header">
+                <div>
+                    <h4 class="milestone-title">Phase 2: Core Pipeline Build & AI Engine Integration</h4>
+                    <span class="milestone-timeline">⏱ Estimated Duration: Weeks 3 - 4</span>
+                </div>
+                <div class="milestone-fee">30% milestone tranche</div>
+            </div>
+            <ul class="deliverables-list">
+                <li>Deployment of autonomous extraction and document processing workflows</li><li>Integration with internal database and notification endpoints</li><li>Human-in-the-loop review dashboard and exception routing</li>
+            </ul>
+        </div>
+        
+        <div class="milestone-card">
+            <div class="milestone-header">
+                <div>
+                    <h4 class="milestone-title">Phase 3: Pilot UAT, Staff Training & Live Go-Live</h4>
+                    <span class="milestone-timeline">⏱ Estimated Duration: Weeks 5 - 6</span>
+                </div>
+                <div class="milestone-fee">30% final sign-off tranche</div>
+            </div>
+            <ul class="deliverables-list">
+                <li>End-to-end user acceptance testing with synthetic and historic workloads</li><li>Live production traffic cutover with real-time alerting</li><li>30 days post-deployment hypercare warranty and code maintenance included.</li>
+            </ul>
+        </div>
+        
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">3. Investment & Payment Terms</h3>
+                <div class="investment-summary">
+                    <div>
+                        <div style="font-size: 13px; color: #64748B; text-transform: uppercase;">Total Project Investment</div>
+                        <div class="total-number">$32000</div>
+                        <div style="font-size: 13px; color: #475569; margin-top: 4px;">Terms: 40% upfront deposit on contract signature, 30% upon Phase 2 milestone delivery, 30% upon final acceptance & sign-off.</div>
+                    </div>
+                    <div>
+                        <span style="background: #DCFCE7; color: #166534; font-weight: 600; font-size: 13px; padding: 6px 14px; border-radius: 20px;">
+                            Guaranteed Fixed Price
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">4. Governance & Regulatory Safeguards</h3>
+                <ul class="compliance-list">
+                    <li>✓ Infrastructure residency locked to regional compliance requirements (North America (Canada)).</li><li>✓ Zero data retention policies enforced on all external AI inference passes.</li><li>✓ Dedicated audit logs tracking all automated executions.</li>
+                </ul>
+            </div>
+
+            <div class="approval-section">
+                <div class="sig-block">
+                    <div class="sig-line"></div>
+                    <div class="sig-label">Authorized Signatory — Apex Freight Solutions</div>
+                </div>
+                <div class="sig-block">
+                    <div class="sig-line"></div>
+                    <div class="sig-label">Authorized Signatory — VelocityOps AI Consulting</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            CONFIDENTIAL & PROPRIETARY • VelocityOps AI Consulting • Questions? Contact alex@velocityops.ai
+        </div>
+    </div>
+</body>
+</html>

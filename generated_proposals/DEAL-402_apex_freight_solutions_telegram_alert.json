@@ -1,0 +1,15 @@
+{
+  "channel": "executive_sales_alerts",
+  "deal_id": "DEAL-402",
+  "company": "Apex Freight Solutions",
+  "contact": "Sarah Jenkins",
+  "value": "$32000",
+  "proposal_url": "file:///C:/Users/KIIT/.gemini/antigravity/scratch/deal_proposal_automation/generated_proposals/DEAL-402_apex_freight_solutions_sow.html",
+  "status": "WAITING_1_CLICK_APPROVAL",
+  "preview_text": "[SOW Ready for Review: DEAL-402]\nClient: Apex Freight Solutions (Sarah Jenkins)\nBudget: $32000\nTimeline: Weeks 1 - 2\nDoc: DEAL-402_apex_freight_solutions_sow.html\nStatus: Awaiting operator tap to dispatch email.",
+  "quick_actions": [
+    "Approve & Send Email",
+    "Edit Milestones",
+    "Reject"
+  ]
+}

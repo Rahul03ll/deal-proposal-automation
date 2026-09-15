@@ -1,0 +1,6 @@
+__pycache__/
+*.py[cod]
+*$py.class
+raw_frames/
+test_drawing.png
+.env

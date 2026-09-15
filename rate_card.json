@@ -1,0 +1,29 @@
+{
+  "company_name": "VelocityOps AI Consulting",
+  "founder": "Alex Mercer, Managing Partner",
+  "founder_email": "alex@velocityops.ai",
+  "standard_payment_terms": "40% upfront deposit on contract signature, 30% upon Phase 2 milestone delivery, 30% upon final acceptance & sign-off.",
+  "sla_support_period": "30 days post-deployment hypercare warranty and code maintenance included.",
+  "service_tiers": {
+    "workflow_automation_sprint": {
+      "base_rate_usd": 25000,
+      "typical_duration_weeks": 4,
+      "included_revisions": 2
+    },
+    "custom_ai_pipeline_integration": {
+      "base_rate_usd": 45000,
+      "typical_duration_weeks": 6,
+      "included_revisions": 3
+    },
+    "enterprise_multi_agent_system": {
+      "base_rate_usd": 75000,
+      "typical_duration_weeks": 8,
+      "included_revisions": 4
+    }
+  },
+  "compliance_certifications": [
+    "SOC 2 Type II Compliant Architecture",
+    "Regional Cloud Residency (AWS me-central-1 / us-east-1)",
+    "Zero-Data-Retention LLM Privacy Controls"
+  ]
+}
