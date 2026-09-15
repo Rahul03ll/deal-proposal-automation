@@ -5,6 +5,7 @@
 > **Target ICP:** 50–300 person service & product businesses in North America and MENA  
 > **Core Pain Solved:** *"Proposals take days to reach a prospect after a good sales call, and momentum dies in the gap."*  
 > **Tech Stack:** Python 3 (standard libraries), Anthropic Model Context Protocol (MCP) tool-calling pattern, Local Rate Card Validator, Telegram Bot Webhooks. Zero paid automation platforms (no Make.com, n8n, Zapier).  
+> **GitHub Repository:** [https://github.com/Rahul03ll/deal-proposal-automation](https://github.com/Rahul03ll/deal-proposal-automation)  
 
 ---
 
