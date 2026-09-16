@@ -5,6 +5,8 @@
 
 ## Workflow Demo
 
+![Workflow Demo](assets/workflow_demo.gif)
+
 https://github.com/user-attachments/assets/be8ae292-ecef-4975-bbb9-a6a061277432
 
 ---
@@ -64,7 +66,8 @@ deal_proposal_automation/
 │   ├── step3_terminal_execution.jpg
 │   ├── step4_telegram_mobile_card.jpg
 │   ├── final_result_sow_document.jpg
-│   └── workflow_demo.gif
+│   ├── workflow_demo.gif
+│   └── workflow_demo.mp4
 ├── generated_proposals/        # Output directory with compiled SOWs & emails
 │   ├── DEAL-401_al-noor_financial_technologies_sow.html
 │   ├── DEAL-401_al-noor_financial_technologies_email_draft.txt
