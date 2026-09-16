@@ -3,11 +3,10 @@
 > **From Sales Discovery Call to Executive Scope of Work in Under 3 Minutes.**  
 > A lightweight, zero-cost AI automation pipeline built for 50–300 person service & product businesses in North America and MENA.
 
-![Workflow Demo](
+## Workflow Demo
 
 https://github.com/user-attachments/assets/be8ae292-ecef-4975-bbb9-a6a061277432
 
-)
 
 ---
 
