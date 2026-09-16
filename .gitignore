@@ -4,3 +4,10 @@ __pycache__/
 raw_frames/
 test_drawing.png
 .env
+NOTION_SUBMISSION.md
+compile_demo_gif.py
+create_workflow_gif.py
+export_frames.ps1
+generate_assets.py
+lzw_gif.py
+

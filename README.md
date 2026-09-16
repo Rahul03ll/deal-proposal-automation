@@ -7,7 +7,6 @@
 
 https://github.com/user-attachments/assets/be8ae292-ecef-4975-bbb9-a6a061277432
 
-
 ---
 
 ## 🎯 The Problem
@@ -59,8 +58,7 @@ deal_proposal_automation/
 ├── proposal_generator.py       # Core automation pipeline engine
 ├── rate_card.json              # Pricing tiers, SLA policies, and guardrails
 ├── deals_tracker.csv           # Intake CRM sheet with raw discovery notes
-├── NOTION_SUBMISSION.md        # Full assignment writeup & documentation
-├── notion_assets/              # Visual screenshots & animated demo GIF
+├── assets/                     # Architecture & visual walkthrough assets
 │   ├── step1_sheet_tracker.jpg
 │   ├── step2_rate_card_editor.jpg
 │   ├── step3_terminal_execution.jpg
@@ -105,23 +103,23 @@ deal_proposal_automation/
 
 ### 1. The Intake Tracker (Google Sheets)
 Raw call notes entered with the explicit `READY` trigger:
-![Step 1 Sheet](notion_assets/step1_sheet_tracker.jpg)
+![Step 1 Sheet](assets/step1_sheet_tracker.jpg)
 
 ### 2. Rate Card Guardrail (VS Code)
 Anchoring pricing, terms, and compliance in `rate_card.json`:
-![Step 2 Editor](notion_assets/step2_rate_card_editor.jpg)
+![Step 2 Editor](assets/step2_rate_card_editor.jpg)
 
 ### 3. Sub-Second Terminal Execution
 Compiling custom proposals in 0.01 seconds:
-![Step 3 Terminal](notion_assets/step3_terminal_execution.jpg)
+![Step 3 Terminal](assets/step3_terminal_execution.jpg)
 
 ### 4. Mobile Telegram 1-Tap Approval
 Instant executive alert sent to the rep's smartphone:
-![Step 4 Telegram](notion_assets/step4_telegram_mobile_card.jpg)
+![Step 4 Telegram](assets/step4_telegram_mobile_card.jpg)
 
 ### 5. Final Result — Interactive Client Scope of Work (SOW)
 Executive-grade, responsive HTML proposal ready for digital sign-off:
-![Final SOW](notion_assets/final_result_sow_document.jpg)
+![Final SOW](assets/final_result_sow_document.jpg)
 
 ---
 
