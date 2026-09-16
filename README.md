@@ -7,8 +7,6 @@
 
 ![Workflow Demo](assets/workflow_demo.gif)
 
-https://github.com/user-attachments/assets/be8ae292-ecef-4975-bbb9-a6a061277432
-
 ---
 
 ## 🎯 The Problem
