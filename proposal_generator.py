@@ -532,14 +532,15 @@ def render_html_proposal(data):
     return html_template
 
 
-def process_deals_pipeline():
-    """Main execution loop for scanning READY deals, generating proposals, and notifying operators."""
+def process_deals_pipeline(deal_id_filter=None, force_all=False, tracker_path=None, dry_run=False):
+    """Main execution loop for scanning deals, generating proposals, and notifying operators."""
     print("=" * 75)
     print("  [>] VELOCITYOPS INSTANT PROPOSAL ENGINE (MCP ZERO-DELAY PIPELINE)")
     print("=" * 75)
 
-    if not TRACKER_PATH.exists():
-        print(f"Error: Tracker file {TRACKER_PATH} does not exist.")
+    active_tracker = tracker_path if tracker_path else TRACKER_PATH
+    if not active_tracker.exists():
+        print(f"Error: Tracker file {active_tracker} does not exist.")
         return False
 
     rate_card = load_rate_card()
@@ -547,26 +548,36 @@ def process_deals_pipeline():
 
     # Read tracker CSV
     rows = []
-    with open(TRACKER_PATH, "r", encoding="utf-8") as f:
+    with open(active_tracker, "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
         for row in reader:
             rows.append(row)
 
-    ready_deals = [r for r in rows if r.get("status", "").upper() == "READY"]
-    print(f"[*] Found {len(ready_deals)} deal(s) flagged 'READY' for immediate proposal generation.\n")
+    if deal_id_filter:
+        target_deals = [r for r in rows if r.get("deal_id", "").upper() == deal_id_filter.upper()]
+        if not target_deals:
+            print(f"[!] Deal ID '{deal_id_filter}' not found in tracker.")
+            return False
+        print(f"[*] Targeted execution for Deal ID: {deal_id_filter}")
+    elif force_all:
+        target_deals = rows
+        print(f"[*] Force-all mode: Processing all {len(target_deals)} deals in pipeline.")
+    else:
+        target_deals = [r for r in rows if r.get("status", "").upper() == "READY"]
+        print(f"[*] Found {len(target_deals)} deal(s) flagged 'READY' for immediate proposal generation.\n")
 
-    if not ready_deals:
-        print("[!] No 'READY' deals waiting. Nothing to execute.")
+    if not target_deals:
+        print("[!] No deals waiting for processing. (Tip: Use --deal <ID> or --all to process specific deals).")
         return True
 
     generated_count = 0
     start_time = time.time()
 
-    for deal in ready_deals:
-        deal_id = deal["deal_id"]
-        company = deal["company"]
-        contact = deal["contact_name"]
+    for deal in target_deals:
+        deal_id = deal.get("deal_id", "DEAL-000")
+        company = deal.get("company", "Client")
+        contact = deal.get("contact_name", "Partner")
         print(f"[+] Processing Deal {deal_id}: {company} (Contact: {contact})")
 
         t0 = time.time()
@@ -578,13 +589,15 @@ def process_deals_pipeline():
         html_content = render_html_proposal(structured_data)
         safe_name = company.lower().replace(" ", "_").replace("&", "and")
         html_file = OUTPUT_DIR / f"{deal_id}_{safe_name}_sow.html"
-        with open(html_file, "w", encoding="utf-8") as f:
-            f.write(html_content)
+        if not dry_run:
+            with open(html_file, "w", encoding="utf-8") as f:
+                f.write(html_content)
 
         # Step 3: Write Email Draft
         email_file = OUTPUT_DIR / f"{deal_id}_{safe_name}_email_draft.txt"
-        with open(email_file, "w", encoding="utf-8") as f:
-            f.write(structured_data.get("email_draft", ""))
+        if not dry_run:
+            with open(email_file, "w", encoding="utf-8") as f:
+                f.write(structured_data.get("email_draft", ""))
 
         # Step 4: Dispatch Mobile / Telegram 1-Click Approval Card
         telegram_payload = {
@@ -606,11 +619,13 @@ def process_deals_pipeline():
             "quick_actions": ["Approve & Send Email", "Edit Milestones", "Reject"]
         }
         telegram_file = OUTPUT_DIR / f"{deal_id}_{safe_name}_telegram_alert.json"
-        with open(telegram_file, "w", encoding="utf-8") as f:
-            json.dump(telegram_payload, f, indent=2)
+        if not dry_run:
+            with open(telegram_file, "w", encoding="utf-8") as f:
+                json.dump(telegram_payload, f, indent=2)
 
         # Update row status
-        deal["status"] = "PROPOSAL_GENERATED (Ready for Review)"
+        if not dry_run:
+            deal["status"] = "PROPOSAL_GENERATED (Ready for Review)"
         generated_count += 1
         elapsed = time.time() - t0
 
@@ -620,20 +635,38 @@ def process_deals_pipeline():
         print(f"   [OK] Pushed Telegram 1-Click Approval Notification ({deal_id})")
         print(f"   [OK] Cycle Finished in {elapsed:.2f}s (Total SLA target: < 180s)\n")
 
-    # Update deals_tracker.csv with new statuses
-    with open(TRACKER_PATH, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(rows)
+    # Update tracker CSV with new statuses if not dry run
+    if not dry_run:
+        with open(active_tracker, "w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerows(rows)
 
     total_time = time.time() - start_time
     print("=" * 75)
-    print(f"[SUMMARY] Successfully compiled {generated_count} proposal(s) in {total_time:.2f}s.")
+    action_str = "Previewed" if dry_run else "Successfully compiled"
+    print(f"[SUMMARY] {action_str} {generated_count} proposal(s) in {total_time:.2f}s.")
     print(f"Output Artifacts Directory: {OUTPUT_DIR}")
     print("=" * 75)
     return True
 
 
 if __name__ == "__main__":
-    success = process_deals_pipeline()
+    import argparse
+    parser = argparse.ArgumentParser(
+        description="VelocityOps Post-Sales-Call Instant Proposal & SOW Generator (Zero-Delay Pipeline)"
+    )
+    parser.add_argument("--deal", "-d", help="Target specific Deal ID (e.g. DEAL-403) regardless of current status")
+    parser.add_argument("--all", "-a", action="store_true", help="Process or regenerate all deals in the tracker")
+    parser.add_argument("--dry-run", action="store_true", help="Extract and render proposal without mutating tracker status")
+    parser.add_argument("--tracker", help="Custom path to deals_tracker.csv")
+    args = parser.parse_args()
+
+    tracker_file = Path(args.tracker) if args.tracker else None
+    success = process_deals_pipeline(
+        deal_id_filter=args.deal,
+        force_all=args.all,
+        tracker_path=tracker_file,
+        dry_run=args.dry_run
+    )
     sys.exit(0 if success else 1)
